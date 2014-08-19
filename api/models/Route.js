@@ -9,7 +9,8 @@ module.exports = {
 
   attributes: {
 
-  	 trip_id: "string",
+     trip_id: "string",
+     vehicle_id:"string",
   	 routes:"json"
 
   }

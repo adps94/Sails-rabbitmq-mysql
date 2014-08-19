@@ -7,9 +7,9 @@
 
 module.exports = {
 
-  findstops : function(req,res){
+        findstops : function(req,res){
     var id=req.param('id');
-    Stops.query('select * from stops where trip_id like "'+'%'+id+'%'+'"', function (err,data) {
+                Stops.query('select * from stops where trip_id = "'+id+'"', function (err,data) {
     // Error handling
           if (err) {
              return console.log(err);
@@ -18,7 +18,7 @@ module.exports = {
              res.json(data);
           }
       });
-  },
+        },
   findAllstops : function(req,res){
     Stops.query('select stop_name,stop_id from stops', function (err,data) {
     // Error handling
@@ -33,9 +33,9 @@ module.exports = {
   findstops_from : function(req,res){
     var id=req.param('id');
     Stops.query('select stop_name,stop_id from stops where stop_id in \ (select distinct stop_id from stop_times where trip_id in \
-                    (select trip_id from stop_times where stop_id like "'+'%'+id+'%'+'"))', function (err,data) {
+                    (select trip_id from stop_times where stop_id = "'+id+'"))', function (err,data) {
     // Error handling
-          if (err) {
+     if (err) {
              return console.log(err);
           } else {
              console.log(data);
@@ -43,6 +43,6 @@ module.exports = {
           }
       });
   }
-  
+
 };
 

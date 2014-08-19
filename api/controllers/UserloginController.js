@@ -7,10 +7,10 @@
 
 module.exports = {
 
-  findvehicle : function(req,res){
+        findvehicle : function(req,res){
     var id=req.param('id');
     console.log(id);
-    Userlogin.query('select emp_id from userlogin where email like "'+'%'+id+'%'+'"', function (err,data) {
+                Userlogin.query('select emp_id from userlogin where email = "'+id+'"', function (err,data) {
     // Error handling
           if (err) {
              return console.log(err);
@@ -22,10 +22,12 @@ module.exports = {
 
                   console.log(data1);
                   res.json(data1);
-               });    
+               });
           }
       });
-  }
-  
+        }
+
 };
+
+
 
