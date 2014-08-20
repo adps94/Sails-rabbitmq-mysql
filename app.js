@@ -114,6 +114,7 @@ function prepare(msg)
     }
 
   }
+}
 function pass(stop_name,trip_id,ts){
     var found=-1;
     console.log(remaining_stops);
